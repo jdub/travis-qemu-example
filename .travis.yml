@@ -7,8 +7,11 @@ cache:
     - $HOME/qemu
 
 env:
-  - GOARCH=arm QEMU_ARCH=arm
-  - GOARCH=386 QEMU_ARCH=i386
+  - TRAVIS_GOARCH=arm QEMU_ARCHES=arm
+  - TRAVIS_GOARCH=386 QEMU_ARCHES=i386
+
+before_install:
+  - export GOARCH=$TRAVIS_GOARCH
 
 before_script:
   - bash -e ci/travis-qemu.sh
