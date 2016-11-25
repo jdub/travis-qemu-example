@@ -19,4 +19,4 @@ before_script:
 
 script:
   - go build hello.go
-  - qemu-$QEMU_ARCH hello
+  - qemu-$QEMU_ARCHES hello
