@@ -11,7 +11,7 @@ env:
   - GOARCH=386 QEMU_ARCH=i386
 
 before_script:
-  - bash -e travis-qemu.sh
+  - bash -e ci/travis-qemu.sh
   - export PATH=$PATH:$HOME/qemu/bin
 
 script:
