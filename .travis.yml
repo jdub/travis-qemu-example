@@ -1,0 +1,19 @@
+language: go
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/qemu
+
+env:
+  - GOARCH=arm QEMU_ARCH=arm
+  - GOARCH=386 QEMU_ARCH=i386
+
+before_script:
+  - bash -e travis-qemu.sh
+  - export PATH=$PATH:$HOME/qemu/bin
+
+script:
+  - go build hello.go
+  - qemu-$QEMU_ARCH hello
